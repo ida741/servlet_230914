@@ -33,9 +33,9 @@ public class GetMethodQuiz07 extends HttpServlet {
 		else {
 			out.print("<html><head><title>주문 결과</title><body>");
 			out.print(address + " <b>배달 준비 중</b><br>결제금액:" + price + "원");
-			out.print("</body></html>");
 		}
 		
+		out.print("</body></html>");
 		
 	}
 	
