@@ -22,7 +22,7 @@ public class GetMethodQuiz08 extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		
 		String search = request.getParameter("search");
-		int lenOfSearch = search.length();
+//		int lenOfSearch = search.length();
 		
 		List<String> list = new ArrayList<>(Arrays.asList(
 		        "강남역 최고 맛집 소개 합니다.", 
@@ -33,20 +33,27 @@ public class GetMethodQuiz08 extends HttpServlet {
 		
 		out.print("<html><head><title>검색 결과</title></head><body>");
 		
-		Iterator<String> iter = list.iterator();
-		while (iter.hasNext()) {
-			String sentence = iter.next();
+//		2)
+//		Iterator<String> iter = list.iterator();
+//		while (iter.hasNext()) {
+//			String sentence = iter.next();
+//			if (!sentence.contains(search)) {
+//				continue;
+//			}
+//			
+//			String[] words = sentence.split(search);
+//			out.print(words[0] + " <b>" + search + "</b> " + words[1] + "<br>");
+//		}
+		
+//		3)
+		for (int i = 0; i < list.size(); i++) {
+			String sentence = list.get(i);
 			if (!sentence.contains(search)) {
 				continue;
 			}
-			
-			int indexOfSearch = sentence.indexOf(search);
-			
-			out.print(sentence.substring(0, indexOfSearch));
-			out.print("<b>" + search + "</b>");
-			out.print(sentence.substring(indexOfSearch + lenOfSearch, sentence.length()));
-			out.print("<br>");
+			out.print(sentence.replace(search, "<b>" + search + "</b>") + "<br>");
 		}
+		
 //		for (int i = 0; i < list.size(); i++) {
 //			String sentence = list.get(i);
 //			if (!sentence.contains(search)) {
@@ -60,7 +67,7 @@ public class GetMethodQuiz08 extends HttpServlet {
 //			out.print(sentence.substring(indexOfSearch + lenOfSearch, sentence.length()));
 //			out.print("<br>");
 //		}
-		out.print("</body></html>");
+//		out.print("</body></html>");
 	}
 	
 }
