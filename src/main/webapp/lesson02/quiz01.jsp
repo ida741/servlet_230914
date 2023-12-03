@@ -6,7 +6,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Insert title here</title>
+		<title>Quiz01</title>
 	</head>
 	<body>
 		<!-- 1. 1부터 n까지의 합계를 구하는 함수 -->
