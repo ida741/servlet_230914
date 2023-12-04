@@ -1,12 +1,11 @@
-<%@page import="java.text.SimpleDateFormat"%>
-<%@page import="java.util.Date"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>결과</title>
+		<title>길이 변환</title>
+		
 		<!-- bootstrap CDN address -->
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
 		<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -14,26 +13,23 @@
 		
 	</head>
 	<body>
-		<%
-			Date now = new Date();
-			SimpleDateFormat sdf = null;
-			
-			String type = request.getParameter("type");
-			String result = null;
-			
-			if (type.equals("time")) {
-				sdf = new SimpleDateFormat("현재 시간은 HH시 mm분 ss초 입니다.");
-			}
-			else if (type.equals("date")) {
-				sdf = new SimpleDateFormat("현재 날짜는 yyyy년 MM월 dd일 입니다.");
-			}
-			
-			result = sdf.format(now);
-		%>
-		
-		<div class="container d-flex justify-contents-center">
-			<h1><%=result %></h1>			
+		<div class="container">
+			<h1>길이 변환</h1>
+			<form method="post" action="/lesson02/quiz05_1.jsp">
+				<div class="d-flex">
+					<input type="text" name="cm" class="form-control mr-2 col-3">
+					<span>cm</span>
+				</div>
+				
+				<div class="mt-2">
+					<label>인치 <input type="checkbox" name="units" value="inch"></label>
+					<label>야드 <input type="checkbox" name="units" value="yard"></label>
+					<label>피트 <input type="checkbox" name="units" value="feet"></label>
+					<label>미터 <input type="checkbox" name="units" value="meter"></label>
+				</div>
+				
+				<button type="submit" class="btn btn-success">변환하기</button>
+			</form>
 		</div>
-		
 	</body>
 </html>

@@ -1,12 +1,11 @@
-<%@page import="java.text.SimpleDateFormat"%>
-<%@page import="java.util.Date"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>결과</title>
+		<title>BMI 계산</title>
+		
 		<!-- bootstrap CDN address -->
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
 		<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -15,24 +14,33 @@
 	</head>
 	<body>
 		<%
-			Date now = new Date();
-			SimpleDateFormat sdf = null;
+			double weight = Double.valueOf(request.getParameter("weight"));
+			double height = Double.valueOf(request.getParameter("height"));
+			double bmi =  weight / ((height / 100.0) * (height / 100.0));
 			
-			String type = request.getParameter("type");
 			String result = null;
-			
-			if (type.equals("time")) {
-				sdf = new SimpleDateFormat("현재 시간은 HH시 mm분 ss초 입니다.");
+			if (bmi <= 20) {
+				result = "저체중";
 			}
-			else if (type.equals("date")) {
-				sdf = new SimpleDateFormat("현재 날짜는 yyyy년 MM월 dd일 입니다.");
+			else if (bmi <= 25) {
+				result = "정상";
 			}
-			
-			result = sdf.format(now);
+			else if (bmi <= 30) {
+				result = "과체중";
+			}
+			else {
+				result = "비만";
+			}
 		%>
 		
-		<div class="container d-flex justify-contents-center">
-			<h1><%=result %></h1>			
+		<div class="container d-flex justify-content-center">
+			<div>
+				<h2>BMI 측정 결과</h2>
+				<h1>당신은
+				<span class="text-info"><%=result %></span>
+				입니다.</h1>
+				BMI 수치 : <%=bmi %>
+			</div>
 		</div>
 		
 	</body>

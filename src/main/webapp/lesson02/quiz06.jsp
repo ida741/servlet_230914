@@ -1,12 +1,11 @@
-<%@page import="java.text.SimpleDateFormat"%>
-<%@page import="java.util.Date"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>결과</title>
+		<title>계산기</title>
+		
 		<!-- bootstrap CDN address -->
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
 		<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -14,26 +13,26 @@
 		
 	</head>
 	<body>
-		<%
-			Date now = new Date();
-			SimpleDateFormat sdf = null;
-			
-			String type = request.getParameter("type");
-			String result = null;
-			
-			if (type.equals("time")) {
-				sdf = new SimpleDateFormat("현재 시간은 HH시 mm분 ss초 입니다.");
-			}
-			else if (type.equals("date")) {
-				sdf = new SimpleDateFormat("현재 날짜는 yyyy년 MM월 dd일 입니다.");
-			}
-			
-			result = sdf.format(now);
-		%>
-		
-		<div class="container d-flex justify-contents-center">
-			<h1><%=result %></h1>			
+		<div class="container">
+			<div>
+				<h1>사칙 연산 계산기</h1>
+				<form method="post" action="/lesson02/quiz06_1.jsp">
+					<div class="d-flex">
+						<input type="text" name="num1" class="form-control col-3">
+						
+						<select name="operator" class="col-2 mx-2 form-control">
+							<option selected>+</option>
+							<option>-</option>
+							<option value="X">*</option>
+							<option>/</option>
+						</select>
+						
+						<input type="text" name="num2" class="form-control col-3">					
+
+						<button type="submit" class="btn btn-success ml-2">계산하기</button>
+					</div>
+				</form>
+			</div>
 		</div>
-		
 	</body>
 </html>
