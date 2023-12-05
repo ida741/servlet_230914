@@ -4,7 +4,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>계산기</title>
+		<title>배탈의 민족</title>
 		
 		<!-- bootstrap CDN address -->
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
@@ -13,32 +13,18 @@
 		
 	</head>
 	<body>
-		<%
-			int num1 = Integer.valueOf(request.getParameter("num1"));
-			int num2 = Integer.valueOf(request.getParameter("num2"));
-			String operator = request.getParameter("operator");
-			
-			double result = num1;
-			
-			if (operator.equals("+")) {
-				result += num2;
-			}
-			else if (operator.equals("-")) {
-				result -= num2;
-			}
-			else if (operator.equals("X")) {
-				result *= num2;
-			}
-			else { // division
-				result /= num2;
-			}
-		%>
-		
 		<div class="container">
-			<h2>계산 결과</h2>
-			<h1><%=num1 %> <%=operator %> <%=num2 %> = 
-				<span class="text-primary"><%=result %></span>
-			</h1>
+			<h1>메뉴 검색</h1>
+			<form method="post" action="quiz07_1.jsp">
+				<div class="d-flex my-2 align-items-center">
+					<input type="text" name="keyword" class="form-control col-4 mr-2">
+					<label>
+						<input type="checkbox" name="discludeUnderFour" value="true">
+						4점 이하 제외					
+					</label>
+				</div>
+				<button type="submit" class="btn btn-success">검색</button>
+			</form>
 		</div>
 	</body>
 </html>

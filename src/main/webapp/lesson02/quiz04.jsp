@@ -1,11 +1,10 @@
-<%@page import="java.util.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>장보기 목록</title>
+		<title>길이 변환</title>
 		
 		<!-- bootstrap CDN address -->
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
@@ -14,39 +13,23 @@
 		
 	</head>
 	<body>
-		
 		<div class="container">
-			<h1 class="d-flex justify-content-center">
-				장보기 목록
-			</h1>
-			
-			<table class="table">
-				<thead>
-					<th>번호</th>
-					<th>품목</th>
-				</thead>
+			<h1>길이 변환</h1>
+			<form method="post" action="/lesson02/quiz04_1.jsp">
+				<div class="d-flex">
+					<input type="text" name="cm" class="form-control mr-2 col-3">
+					<span>cm</span>
+				</div>
 				
-				<tbody>
-					<%
-						List<String> goodsList = Arrays.asList(new String[]{ 
-							"저지방 우유", "요플레 4개", "딸기 1팩", "삼겹살 300g", "생수 6개", "주방 세제"
-						});
-						// Iterator<String> iter = goodsList.iterator();
-						// int index = 1;
-						// while (iter.hasNext()) {
-						//	String goods = iter.next();
-						for (int i = 0; i < goodsList.size(); i++) {
-							String goods = goodsList.get(i);
-					%>
-						<tr>
-							<td><%=i + 1 %></td>
-							<td><%=goods %></td>
-						</tr>
-					<%
-						}
-					%>
-				</tbody>
-			</table>
+				<div class="mt-2">
+					<label>인치 <input type="checkbox" name="units" value="inch"></label>
+					<label>야드 <input type="checkbox" name="units" value="yard"></label>
+					<label>피트 <input type="checkbox" name="units" value="feet"></label>
+					<label>미터 <input type="checkbox" name="units" value="meter"></label>
+				</div>
+				
+				<button type="submit" class="btn btn-success">변환하기</button>
+			</form>
 		</div>
 	</body>
 </html>
