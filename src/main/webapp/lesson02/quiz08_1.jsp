@@ -61,25 +61,28 @@
 	        } 
 	    };
 	    list.add(map);	
+	    
+
+		Map<String, Object> targetBook = new HashMap<>();
+		
+		for (Map<String, Object> book : list) {
+			
+			if ((int)book.get("id") == id) {
+				targetBook = book;
+				break;
+			}
+		}
 		%>
 		
 		<div class="container d-flex">
-			<%
-				for (int i = 0; i < list.size(); i++) {
-					Map<String, Object> book = list.get(i);
-					int bookId = (int)book.get("id");
-					if (bookId == id) {
-			%>
-			<img src="<%=book.get("image") %>" alt="book cover" width="200">
-			<div class="ml-3">
-				<h1 class="font-weight-bold"><%=book.get("title") %></h1>
-				<h2 class="text-info"><%=book.get("author") %></h2>
-				<h2 class="text-secondary"><%=book.get("publisher") %></h2>
+			<div>
+				<img src="<%=targetBook.get("image") %>" alt="book cover">			
 			</div>
-			<%
-					}
-				}
-			%>
+			<div class="ml-3">
+				<h1 class="display-1 font-weight-bold"><%=targetBook.get("title") %></h1>
+				<h2 class="display-3 text-info"><%=targetBook.get("author") %></h2>
+				<h2 class="display-4 text-secondary"><%=targetBook.get("publisher") %></h2>
+			</div>
 		</div>
 	</body>
 </html>

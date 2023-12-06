@@ -17,6 +17,7 @@
 		<%
 		String keyword = request.getParameter("keyword");
 		String duf = request.getParameter("discludeUnderFour");
+		boolean exclude = duf != null;
 		
 		List<Map<String, Object>> list = new ArrayList<>();
 	    
@@ -57,8 +58,17 @@
 						for (int i = 0; i < list.size(); i++) {
 							Map<String, Object> store = list.get(i);
 							Double point = (double)store.get("point");
-							if (store.get("menu").equals(keyword) && 
-									(duf == null || point >= 4.0)) {
+							// str to num
+							// Integer.valueOf & Integer.parseInt = Str to Int
+							// Double.valueOf = Str to Double
+							// Object to double = 다운캐스팅
+							
+							// skip 조건: 체크가 되어 있고 스킵이 되어야 하는 조건이
+							if (!store.get("menu").equals(keyword) || (exclude && point < 4.0)) {
+								continue;
+							}
+							// if (store.get("menu").equals(keyword) && 
+							//		(!isExcluded || point >= 4.0)) {
 					%>
 						<tr>
 							<td><%=keyword %></td>
@@ -66,7 +76,7 @@
 							<td><%=store.get("point") %></td>
 						</tr>
 					<%
-							}
+							// }
 						}
 					%>
 				</tbody>

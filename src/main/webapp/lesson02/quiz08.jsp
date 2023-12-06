@@ -63,9 +63,9 @@
 		%>
 		
 		<div class="container">
-			<h1 class="d-flex justify-content-center">책 목록</h1>
+			<h1 class="text-center">책 목록</h1>
 			
-			<table class="table">
+			<table class="table text-center">
 				<thead>
 					<th>id</th>
 					<th>표지</th>
