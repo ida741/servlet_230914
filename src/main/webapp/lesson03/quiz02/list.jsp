@@ -1,10 +1,16 @@
 <%@page import="java.util.*"%>
-<%@page import="java.util.HashMap"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
 <%
+Map<String, Object> artistInfo = new HashMap<>();
+artistInfo.put("name", "아이유");
+artistInfo.put("debute", 2008);
+artistInfo.put("agency", "EDAM엔터테인먼트");
+artistInfo.put("photo", "http://image.genie.co.kr/Y/IMAGE/IMG_ALBUM/081/867/444/81867444_1616662460652_1_600x600.JPG");
+
 List<Map<String, Object>> musicList = new ArrayList<>();
+
 Map<String, Object> musicInfo = new HashMap<>();
 musicInfo.put("id", 1);
 musicInfo.put("title", "팔레트");
@@ -70,38 +76,38 @@ musicInfo.put("time", 217);
 musicInfo.put("composer", "아이유,이종훈,이채규");
 musicInfo.put("lyricist", "아이유");
 musicList.add(musicInfo);
-
-String idStr = request.getParameter("id");
-String title = request.getParameter("title");
-
-for (Map<String, Object> music : musicList) {
-	if ((idStr != null && (int)music.get("id") == Integer.valueOf(idStr)) || (title != null && title.equals(music.get("title")))) {
 %>
-<img src="<%=music.get("thumbnail")%>" alt="IU" width="150">
-<div class="ml-4">
-	<div class="font-size-40"><%=music.get("title")%></div>
-	<div class="text-success font-weight-bold"><%=music.get("singer")%></div>
-	<table>
-		<tr>
-			<td>앨범</td>
-			<td><%=music.get("album") %></td>
-		</tr>
-		<tr>
-			<td>재생시간</td>
-			<td><%=(int)music.get("time") / 60 %> : <%=(int)music.get("time") % 60 %></td>
-		</tr>
-		<tr>
-			<td>작곡가</td>
-			<td><%=music.get("composer") %></td>
-		</tr>
-		<tr>
-			<td>작사가</td>
-			<td><%=music.get("lyricist") %></td>
-		</tr>
-		
+
+<div class="border border-success p-4 d-flex mb-3">
+	<img src="<%=artistInfo.get("photo")%>" alt="IU" width="150">
+	<div class="ml-4">
+		<div class="font-size-30 font-weight-bold"><%=artistInfo.get("name")%></div>
+		<div class="font-size-20"><%=artistInfo.get("agency")%></div>
+		<div class="font-size-20"><%=artistInfo.get("debute")%> 데뷔</div>
+	</div>
+</div>
+
+<div class="song-list pt-2">
+	<h3 class="font-weight-bold">곡 목록</h3>
+	<table class="table text-center">
+		<thead>
+			<th>no</th>
+			<th>제목</th>
+			<th>엘범</th>
+		</thead>
+
+		<tbody>
+			<%
+			for (Map<String, Object> music : musicList) {
+			%>
+			<tr>
+				<td><%=music.get("id")%></td>
+				<td><a href="/lesson03/quiz02/song_layout.jsp?id=<%=music.get("id")%>"><%=music.get("title")%></a></td>
+				<td><%=music.get("album")%></td>
+			</tr>
+			<%
+			}
+			%>
+		</tbody>
 	</table>
 </div>
-<%
-	}
-}
-%>

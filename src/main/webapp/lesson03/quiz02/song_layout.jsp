@@ -16,7 +16,7 @@
 			nav {height:80px;}
 			footer {height:80px;}
 			
-			.font-size-40 {font-size:40px;}
+			.font-size-50 {font-size:50px;}
 			.font-size-30 {font-size:30px;}
 			.font-size-20 {font-size:20px;}
 			
@@ -35,13 +35,7 @@
 			</nav>
 			
 			<section class="content">
-				<div class="border border-success p-4 d-flex mb-3">
-					<jsp:include page="./artistInfo.jsp" />
-				</div>
-				
-				<div class="song-list pt-2">
-					<jsp:include page="songList.jsp" />
-				</div>
+				<jsp:include page="song.jsp" />
 			</section>
 			
 			<footer>
