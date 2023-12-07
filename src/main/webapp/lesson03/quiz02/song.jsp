@@ -1,11 +1,10 @@
-<%@page import="java.util.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>채널 안내</title>
+		<title>Insert title here</title>
 		
 		<!-- bootstrap CDN address -->
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
@@ -13,30 +12,41 @@
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
 		
 		<style>
-			header {height: 80px;}
-			nav {height: 50px;}
-			footer {height: 50px;}
+			header {height:100px;}
+			nav {height:80px;}
+			footer {height:80px;}
 			
-			a, a:hover {text-decoration: none;}
-			.nav-link:hover {color:pink!important;}
+			.font-size-30 {font-size:30px;}
+			.font-size-20 {font-size:20px;}
+			
+			a, a:hover {text-decoration:none;}
+			.nav-link {color:black; font-size:19px;}
 		</style>
 	</head>
 	<body>
 		<div id="wrap" class="container">
-			<header class="d-flex align-items-center justify-content-center">
+			<header class="d-flex align-items-center">
 				<jsp:include page="./header.jsp" />
 			</header>
 			
-			<nav class="d-flex justify-content-center align-items-center bg-danger">
+			<nav class="d-flex align-items-center">
 				<jsp:include page="./nav.jsp" />
 			</nav>
 			
 			<section class="content">
-				<jsp:include page="./content.jsp" />
+				<div class="border border-success p-4 d-flex mb-3">
+					<jsp:include page="./songInfo.jsp" />
+				</div>
+				
+				<div class="song-list pt-2">
+					<h3 class="font-weight-bold">가사 정보</h3>
+					<hr>
+					<span>가사 정보 없음</span>
+				</div>
 			</section>
 			
-			<footer class="text-center">
-				<jsp:include page="footer.jsp" />
+			<footer>
+				<jsp:include page="./footer.jsp" />
 			</footer>
 		</div>
 	</body>
