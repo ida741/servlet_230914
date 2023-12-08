@@ -16,12 +16,13 @@
 			nav {height:80px;}
 			footer {height:80px;}
 			
-			.font-size-40 {font-size:40px;}
 			.font-size-30 {font-size:30px;}
 			.font-size-20 {font-size:20px;}
 			
 			a, a:hover {text-decoration:none;}
 			.nav-link {color:black; font-size:19px;}
+			
+			.music-info {font-size:15px; color:gray;}
 		</style>
 	</head>
 	<body>
