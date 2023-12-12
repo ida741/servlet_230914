@@ -14,12 +14,16 @@
 		<style>
 			header {height: 100px;}
 			nav {height: 80px;}
-			.content {height: 800px;}
 			footer {height: 80px;}
 			
 			a, a:hover {text-decoration:none;}
 			
 			.nav-link {font-size:20px;}
+			
+			.goods {border: solid orange; width: 360px; height:300px;}
+			.goods:hover {background-color:#F2F2F2;}
+			.seller {color: orange;}
+			.null-image {height: 200px;}
 		</style>
 	</head>
 	<body>
@@ -32,8 +36,8 @@
 				<jsp:include page="nav.jsp" />
 			</nav>
 			
-			<section class="content bg-danger">
-				<!-- <jsp:include page="content.jsp"> -->
+			<section class="content bg-danger pt-3">
+				<jsp:include page="list.jsp" />
 			</section>
 			
 			<footer class="bg-warning d-flex justify-content-center align-items-center">
