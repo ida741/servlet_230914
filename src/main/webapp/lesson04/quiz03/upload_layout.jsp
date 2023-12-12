@@ -25,6 +25,36 @@
 			.seller {color: orange;}
 			.null-image {height: 200px;}
 		</style>
+		
+		<script>
+			$(document).ready(function() {
+								
+				$("#submitBtn").on("click", function() {
+					let id = $("#sellerId > option:selected").val();
+					let title = $("#title").val();
+					let price = $("#price").val();
+					let description = $("#description").val();
+					
+					if (id == "null") {
+						alert("아이디를 선택해주세요");
+						return false;
+					}
+					else if (title == "") {
+						alert("제목을 입력해주세요");
+						return false;
+					}
+					else if (price == "") {
+						alert("가격을 입력해주세요");
+						return false;
+					}
+					else if (description == "") {
+						alert("설명을 입력해주세요");
+						return false;
+					}
+				})
+				
+			})
+		</script>
 	</head>
 	<body>
 		<div id="wrap" class="container bg-dark">

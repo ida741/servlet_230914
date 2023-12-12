@@ -42,7 +42,7 @@
 					<tr>
 						<td><%=result.getString("name") %></td>
 						<td><a href="<%=result.getString("url") %>"><%=result.getString("url") %></a></td>
-						<td><a href="/lesson04/quiz02_delete?id=<%=result.getInt("id") %>">삭제</a></td>
+						<td><a type="button" class="btn btn-danger" href="/lesson04/quiz02_delete?id=<%=result.getInt("id") %>">삭제</a></td>
 					</tr>
 					<%
 						}

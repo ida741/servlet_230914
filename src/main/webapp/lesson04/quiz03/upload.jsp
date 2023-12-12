@@ -16,7 +16,7 @@
 	<h1 class="my-5">물건 올리기</h1>
 	<form method="post" action="/lesson04/quiz03_insert">
 		<div class="d-flex justify-content-around">
-			<select class="form-control col-3" name="sellerId">
+			<select class="form-control col-3" name="sellerId" id="sellerId">
 				<option selected value="null">-아이디 선택-</option>
 				<%
 					while (result.next()) {
@@ -29,11 +29,10 @@
 				%>
 			</select>
 			
-			<input type="text" class="form-control col-5" name="title"
-				placeholder="제목">
+			<input type="text" class="form-control col-5" name="title" placeholder="제목" id="title">
 
 			<div class="input-group mb-3 col-3">
-				<input type="text" class="form-control" placeholder="가격" name="price">
+				<input type="text" class="form-control" placeholder="가격" name="price" id="price">
 				<div class="input-group-append">
 					<span class="input-group-text">원</span>
 				</div>
@@ -41,7 +40,7 @@
 		</div>
 		
 		<p>
-			<textarea class="form-control" rows="5" name="description"></textarea>
+			<textarea class="form-control" rows="5" name="description" id="description"></textarea>
 		</p>
 		
 		<div class="input-group mb-3">
@@ -51,7 +50,7 @@
 			<input type="text" class="form-control">
 		</div>
 		
-		<button type="submit" class="btn btn-light form-control mb-3">저장</button>
+		<button id="submitBtn" type="submit" class="btn btn-light form-control mb-3">저장</button>
 	</form>
 </div>
 <%
